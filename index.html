@@ -9,8 +9,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./dist//output.css">
   <title>Frontend Mentor | News homepage</title>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
-    
+<body class="bg-off-white">
+  <div class="w-11/12 m-auto max-w-4xl border border-soft-red">
+    <header>
+      <nav class="flex py-4  items-center justify-between">
+        <div>
+          <img class="w-12 md:w-15 inline cursor-pointer" alt="logo" src="./assets/images/logo.svg"/>
+        </div>
+        <span class="text-5xl md:hidden block cursor-pointer">
+          <ion-icon name="menu-outline" onclick="Open(this)"></ion-icon>
+        </span>
+        <ul class="z-10 md:opacity-100 opacity-0 md:block hidden transition-all ease-in absolute md:static w-10/12 h-screen right-[-800px] bg-off-white top-0 px-10 md:px-0 md:h-auto md:flex md:justify-between">
+          <span class="text-5xl md:hidden block my-5 text-right cursor-pointer">
+            <ion-icon name="close-outline" onclick="Close(this)"></ion-icon>
+          </span>
+          <li class="md:mx-5 mt-20 mb-7 md:my-0">
+            <a class="text-xl hover:text-soft-red duration-500" href="#">Home</a>
+          </li>
+          <li class="md:mx-5 my-7 md:my-0">
+            <a class="text-xl hover:text-soft-red duration-500" href="#">New</a>
+          </li>
+          <li class="md:mx-5 my-7 md:my-0">
+            <a class="text-xl hover:text-soft-red duration-500" href="#">Popular</a>
+          </li>
+          <li class="md:mx-5 my-7 md:my-0">
+            <a class="text-xl hover:text-soft-red duration-500" href="#">Trending</a>
+          </li>
+          <li class="my-7 md:my-0">
+            <a class="text-xl hover:text-soft-red duration-500" href="#">Categories</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div id="overlay" class="md:hidden opacity-20 fixed hidden w-full h-full top-0 left-0 right-0 bottom-0 bg-black z-1"></div>
+  <script>
+    const Open = (e)=>{
+      const navLink = document.querySelector("ul")
+      console.log(navLink)
+      navLink.classList.remove("hidden")
+      navLink.classList.add("right-[-1px]")
+      navLink.classList.add("opacity-100")
+
+      //overlay
+      const overlay = document.getElementById("overlay")
+      overlay.classList.remove("hidden")
+    }
+    const Close = (e)=>{
+      const navLink = document.querySelector("ul")
+      navLink.classList.add("hidden")
+      navLink.classList.remove("right-[-1px]")
+      navLink.classList.remove("opacity-100")
+
+            //overlay
+      const overlay = document.getElementById("overlay")
+      overlay.classList.add("hidden")
+    }
+  </script>
 </body>
 </html>
